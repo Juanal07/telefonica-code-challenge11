@@ -17,6 +17,7 @@ for l in lines:
     # match = re.match(r"d", string[3])
     if match:
       print(chr(int(match.group(1),16)))
+      print(match.group())
       # print('ENcontraoooo')
     else:
       print("pattern not found")
