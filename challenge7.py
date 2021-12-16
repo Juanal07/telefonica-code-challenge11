@@ -54,6 +54,7 @@ while i<iteraciones:
             action=random.choice(actions)
         else:
             action = np.argmax(q_table[posicion])
+            print(action)
 
         if action == 0:
             s_action = 'north'
