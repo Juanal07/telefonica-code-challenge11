@@ -1,23 +1,19 @@
-import re
-"""
-I find the hiden hex unicodes
-pass to decimal and sub 46 (46 because I iterated until i find the right number)
-pass to utf8
-"""
-with open('Invictus.txt') as f:
-    lines = f.readlines()
-unicodes=[]
-for l in lines:
-    string = repr(l)
-    match = re.findall(r"U000e00(.{2})", string)
-    unicodes+=match
-mensaje=''
-for u in unicodes:
-    mensaje+=(chr((int(u,16))-46))
-print(mensaje)
-
-f = open("submitOutput.txt", "w")
-f.write(mensaje)
-f.close()
-
 # netcat codechallenge-daemons.0x14.net 4321
+# from netcat import Netcat
+import socket, sys, time
+host = 'codechallenge-daemons.0x14.net'
+port = 4321
+
+remote_ip = socket.gethostbyname(host)
+print(remote_ip)
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((remote_ip, port))
+while 1:
+    s.send(bytes('west','utf-8'))
+    data = s.recv(1024)
+    if data == "":
+        break
+    print("Received:", repr(data)) 
+print("Connection closed.") 
+s.close()
