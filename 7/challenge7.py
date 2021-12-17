@@ -1,3 +1,7 @@
+"""
+i get stucked for 40 hours tring to do it with reinforcement learning 
+finaliy did it more simple, just traversing the graph and using A* algorithm from a library
+"""
 import networkx as nx
 import matplotlib.pyplot as plt
 import socket, random
@@ -22,7 +26,7 @@ initial = pos
 cola=[]
 i=0
 exitDoor=''
-while i<200:
+while 1:
 
     # s.send(bytes('where am I','utf-8'))
     # pos = s.recv(1024).decode('utf-8').replace('\n','')
@@ -107,6 +111,13 @@ nx.draw(G, with_labels=True, font_weight='bold')
 plt.savefig("path.png")
 solucion=nx.astar_path(G, initial, exitDoor)
 print(solucion)
-for sol in solucion:
-    print(sol)
 
+f = open("testOutput.txt", "w")
+for sol in solucion:
+    if sol==exitDoor:
+        print(sol,end="")
+        f.write(sol)
+    else:
+        print(sol+', ',end="")
+        f.write(sol+', ')
+f.close()
