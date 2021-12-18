@@ -1,7 +1,7 @@
 def challenge9(input):
     # f = open("sampleOutput.txt", "w")
     # f = open("testOutput.txt", "w")
-    # f = open("submitOutput.txt", "w")
+    f = open("submitOutput.txt", "w")
     cases = int(input.readline())
     n_sprites = int(input.readline())
     j=1
@@ -19,7 +19,7 @@ def challenge9(input):
                     sprite.append((d,k))
         sprites.append(sprite)
         j+=1
-    print(sprites)
+    # print(sprites)
     i=1
     while i<=cases:
         print('Caso:',i)
@@ -43,14 +43,14 @@ def challenge9(input):
                         break
             lista_sprites.append(new_sprite)
         print('Colisiones:',num_colisiones)
-        # f.write('Case #{}: {}'.format(i,num_colisiones))
-        # f.write('\n')
+        f.write('Case #{}: {}'.format(i,num_colisiones))
+        f.write('\n')
         i+=1
-    # f.close()
+    f.close()
 
-input = open('sampleInput.txt', 'r')
+# input = open('sampleInput.txt', 'r')
 # input = open('testInput.txt', 'r')
-# input = open('submitInput.txt', 'r')
+input = open('submitInput.txt', 'r')
 challenge9(input)
 input.close()
 
