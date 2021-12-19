@@ -1,3 +1,6 @@
+"""
+i get the intersection between 2 sprites and then check if there is a collision
+"""
 def challenge9(input):
     # f = open("sampleOutput.txt", "w")
     # f = open("testOutput.txt", "w")
