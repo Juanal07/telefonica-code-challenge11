@@ -1,7 +1,7 @@
 def challenge9(input):
     # f = open("sampleOutput.txt", "w")
-    f = open("testOutput.txt", "w")
-    # f = open("submitOutput.txt", "w")
+    # f = open("testOutput.txt", "w")
+    f = open("submitOutput.txt", "w")
     cases = int(input.readline())
     n_sprites = int(input.readline())
     j=1
@@ -23,13 +23,11 @@ def challenge9(input):
             sprite.append(fila)
         sprites.append(sprite)
         j+=1
-    saltados=0
     i=1
     while i<=cases:
         print('Caso:',i)
         movs=input.readline()
         num_colisiones=0
-        checkeos=0
         spawns=[]
         for _ in range(int(movs)):
             mov=input.readline()
@@ -40,9 +38,7 @@ def challenge9(input):
             spawn=[index,(coord_x,coord_y),(coord_x+dimensiones[index][0],coord_y+dimensiones[index][1])]
             for s in spawns:
                 intereseccion=[(max(s[1][0],spawn[1][0]),max(s[1][1],spawn[1][1])),(min(s[2][0],spawn[2][0]),min(s[2][1],spawn[2][1]))]
-                checkeos+=1
                 if intereseccion[0][0] > intereseccion[1][0] or intereseccion[0][1] > intereseccion[1][1]:
-                    saltados+=1
                     pass
                 else:
                     puntos_s=[(intereseccion[0][0]-s[1][0],intereseccion[0][1]-s[1][1]),(intereseccion[1][0]-s[1][0],intereseccion[1][1]-s[1][1])]
@@ -76,8 +72,8 @@ def challenge9(input):
     f.close()
 
 # input = open('sampleInput.txt', 'r')
-input = open('testInput.txt', 'r')
-# input = open('submitInput.txt', 'r')
+# input = open('testInput.txt', 'r')
+input = open('submitInput.txt', 'r')
 challenge9(input)
 input.close()
 
