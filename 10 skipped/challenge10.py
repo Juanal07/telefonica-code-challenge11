@@ -13,20 +13,30 @@ def challenge10(input):
     list=[]
     while True:
         header = input.readline().replace('\n','')
-        info = input.readline()
+        info = input.readline().split('|')
         if not header:
                 break
         header=header.split(',')
-        seq=header[1].split(' ')
-        list.append((int(seq[2]),info))
-    # print(list)
-    list_sorted = sorted(list, key=lambda x: x[0])
-    # print(list_sorted)
-    # for l in list_sorted:
-    #     print(l)
+        id=header[1].split(' ')
+        seq=header[2].split(' ')
+        info=info[1].replace('.','').replace('\n','')
+        
+        list.append((int(id[2]),int(seq[2]),info))
 
-    for l in list:
-        print(l)
+    list_sorted = sorted(list, key=lambda x: x[0])
+    print(list_sorted)
+
+    # lista_rara=[]
+    # for l in list_sorted:
+    #     letras=l[2]
+    #     for letra in letras:
+    #         if ord(letra)!=l[0]:
+    #             lista_rara.append((l[1],letra))
+
+    # lista_rara = sorted(lista_rara, key=lambda x: x[0])
+    # print(lista_rara)
+    # for l in lista_rara:
+    #     print(l[1],end='')
 
 
         # f.write('Case #{}: {}'.format(i,num_colisiones))

@@ -1,0 +1,22 @@
+3
+6 3
+getHeight
+pairs
+getWidth
+invert
+getDepth
+invoke
+6 2
+getHeight
+pairs
+getWidth
+invert
+getDepth
+invoke
+6 6
+getHeight
+pairs
+getWidth
+invert
+getDepth
+invoke
